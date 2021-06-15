@@ -3,6 +3,7 @@ package com.example.readandwritejson;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView showData;
     File file;
-    private static final String FILE_NAME="sample2.json";
+    private static final String FILE_NAME="sample3.json";
     private JSONObject data;
     FileReader fileReader=null;
     FileWriter fileWriter=null;
@@ -75,27 +76,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void WriteJSON(){
-        try {
-            data=new JSONObject(response);
-            Boolean isUserExisting=data.has("Anuj");
-            if(!isUserExisting){
-                JSONArray newUser=new JSONArray();
-                newUser.put("9548098789");
-                data.put("Anuj",newUser);
-            }
-            else{
-                JSONArray user=(JSONArray)data.get("Anuj");
-                user.put("9875674930");
-            }
-            fileWriter=new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw=new BufferedWriter(fileWriter);
-            bw.write(data.toString());
-            bw.close();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Intent intent=new Intent(MainActivity.this,UserActivity.class);
+        intent.putExtra("Response",response);
+        startActivity(intent);
+        finish();
     }
 
     public void ReadJSON() {

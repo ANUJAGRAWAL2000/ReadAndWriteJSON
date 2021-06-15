@@ -9,7 +9,7 @@ android {
     defaultConfig {
         multiDexEnabled true
         applicationId "com.example.readandwritejson"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -40,5 +40,5 @@ dependencies {
 }
 
 dependencies {
-    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
 }
