@@ -73,6 +73,14 @@ public class MainActivity extends AppCompatActivity {
                   ReadJSON();
             }
         });
+
+        findViewById(R.id.ImageLoad).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,LoadImageActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void WriteJSON(){
