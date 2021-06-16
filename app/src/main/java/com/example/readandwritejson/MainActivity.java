@@ -81,6 +81,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.GridLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,GridLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void WriteJSON(){
